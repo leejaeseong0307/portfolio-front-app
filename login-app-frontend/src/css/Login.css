@@ -1,0 +1,78 @@
+.gradient-btn {
+    background: linear-gradient(135deg, #000000, #434343);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .gradient-btn:hover {
+    background: linear-gradient(135deg, #1c1c1c, #4f4f4f);
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  /* 입력창 텍스트 */
+  .form-control {
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #666;
+    box-shadow: none;
+  }
+  
+  /* 버튼 */
+  .login-title {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #222;
+    letter-spacing: 1px;
+  }
+  
+  .login-button {
+    background: linear-gradient(to right, #6337378c, #434343);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(to right, #222222, #555555);
+  }
+
+  .signup-link {
+    color: #03101f;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .signup-link:hover {
+    color: #2587f0; /* 더 진한 파란색으로 변화 */
+  }
+
+  .form-control::placeholder {
+    color: #999;               /* 연한 회색 */
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 1;                /* 기본값이 낮아서 꼭 1로 설정해줘야 진하게 보임 */
+    font-family: 'Noto Sans KR', sans-serif; /* 선택사항: 폰트 통일 */
+  }

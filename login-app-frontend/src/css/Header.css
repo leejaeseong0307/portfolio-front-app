@@ -1,0 +1,145 @@
+.common-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 32px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3000; /* 충분히 높게 */
+  }
+  
+  .header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .title-link {
+    font-size: clamp(18px, 7vw, 36px);
+    font-weight: 600;
+    color: #222;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  
+  .header-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .logout-btn,
+  .login-link {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .logout-btn:hover,
+  .login-link:hover {
+    background-color: #f2f2f2;
+    border-color: #999;
+  }
+
+  .user-info {
+     margin-right: 12px;
+  font-size: 15px;
+  font-weight: 600;               /* 더 굵게 */
+  color: white;                   /* 글씨색 진하게 */
+  background-color: #007bff;      /* 파란 배경 (강조) */
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 그림자 강조 */
+  transition: background-color 0.2s ease;
+  }
+
+  .menu-wrapper {
+    position: relative;
+  }
+  
+  .menu-button {
+    background: none;
+  border: none;
+  color: rgb(3, 3, 3);
+  font-size: 2rem;     /* ← 기존보다 더 크게 */
+  padding: 10px 16px;  /* ← 클릭 범위 넓히기 */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  }
+  
+  /* .menu-button:hover {
+    background-color: #f2f2f2;
+    border-color: #999;
+  } */
+
+  .menu-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    background-color: #fff;
+    border: 0px solid #ccc !important;
+    border-radius: 8px;
+    z-index: 2000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 220px !important; /* 여기 넓혀줌 */
+    animation: slideDown 0.3s ease forwards;
+  }
+  
+  .dropdown-menu p {
+    margin: 0;
+    padding: 12px 20px;
+    color: rgb(59, 48, 48);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    border-bottom: 1px solid #566573;
+  }
+  
+  .dropdown-menu p:hover {
+    /* background-color: #96675f; */
+    /* background: linear-gradient(102deg, #634444, #1f1d1d); */
+    background:#c5c5c5;
+    color: white;
+    font-weight: 600;
+  }
+
+  .hamburger-icon {
+    font-size: 1.8rem; /* 기존보다 큼직하게 */
+  }
+
+  .menu-wrapper {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  .common-header {
+    position: fixed;
+  }
+
+  .dropdown-menu p.active {
+    font-weight: bold;
+    background: linear-gradient(102deg, #1f1d1d, #634444);
+    color: white;
+  }

@@ -1,0 +1,88 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f6f8;
+  }
+  
+  .register-form {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-form h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .register-form label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .register-form input {
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .register-form input:focus {
+    border-color: #0077ff;
+  }
+  
+  .register-form button {
+    padding: 12px;
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-form button:hover {
+    background-color: #005fcc;
+  }
+
+  /* 버튼 */
+  .sign-title {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #222 !important;
+    letter-spacing: 1px;
+  }
+
+  .error-msg {
+    font-size: 12px;
+    color: red;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 12px;
+      color: #007bff;
+      cursor: pointer;
+      padding: 4px;
+      }    
