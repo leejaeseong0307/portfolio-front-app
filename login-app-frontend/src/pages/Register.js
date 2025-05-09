@@ -57,7 +57,7 @@ function Register() {
       if (response.status === 200) {
         alert('인증번호가 이메일로 전송되었습니다.');
         setCodeSent(true);
-        setTimeLeft(60); // 3분 타이머 시작
+        setTimeLeft(60); // 1분 타이머 시작
         setIsVerified(false); // 인증 초기화
       }
 
