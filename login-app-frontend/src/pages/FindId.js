@@ -45,7 +45,7 @@ function FindId() {
       if (response.status === 200) {
         alert('인증번호가 이메일로 전송되었습니다.');
         setCodeSent(true);
-        setTimeLeft(60); // 3분 타이머 시작
+        setTimeLeft(60); // 1분 타이머 시작
         setIsVerified(false); // 인증 초기화
       }
 
@@ -123,6 +123,8 @@ function FindId() {
       console.log(newValue.length);
       if (newValue.length <= 0) {
         setNameError('이름을을 입력해주세요.');
+      }else{
+        setNameError('');
       }
     }
 
@@ -146,7 +148,7 @@ const isFormValid =
     e.preventDefault();
 
     if (!isFormValid) {
-      alert('모든 항목을 올바르게 입력하고 동의해주세요.');
+      alert('모든 항목을 올바르게 입력해주세요.');
       return;
     }
 

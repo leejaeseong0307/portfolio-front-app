@@ -188,7 +188,7 @@ const isFormValid =
     e.preventDefault();
 
     if (!isFormValid) {
-      alert('모든 항목을 올바르게 입력하고 동의해주세요.');
+      alert('모든 항목을 올바르게 입력해주세요.');
       return;
     }
 
