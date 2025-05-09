@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-login-app-frontend/node_modules/
+/login-app-frontend/node_modules/
 **/node_modules/
