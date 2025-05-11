@@ -27,6 +27,7 @@ function FindPw() {
   const emailInputRef = useRef(null);
   const idInputRef = useRef(null);
   const [message, setMessage] = useState('');
+  const [verifiedEmail, setVerifiedEmail] = useState('');
 
   const [timeLeft, setTimeLeft] = useState(0);
 
@@ -88,6 +89,7 @@ function FindPw() {
       if (response.status === 200) {
         setMessage('인증 성공!');
         setIsVerified(true);
+        setVerifiedEmail(formData.email);
         setTimeLeft(0);
       }
     } catch (error) {
@@ -192,7 +194,7 @@ const isFormValid =
       return;
     }
 
-    if (!isVerified) {
+    if (!isVerified || verifiedEmail !== formData.email) {
       alert("이메일 인증을 먼저 완료해주세요!");
       return;
     }
