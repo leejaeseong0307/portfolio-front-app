@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/auth/authSlice";
 import { useLocation } from 'react-router-dom';
 
-const Menu = ({ setMenuTitle }) => {
+const Menu = ({ setMenuTitle, closeMenu  }) => {
   const [menus, setMenus] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const Menu = ({ setMenuTitle }) => {
     //alert(menuRoute);
     setMenuTitle(menuName);
     //navigate(menuRoute);
+    closeMenu();
     window.location.href = menuRoute;
   };
 
@@ -55,7 +56,7 @@ const Menu = ({ setMenuTitle }) => {
         return true;
       }) */}
       {menus.map((menu) => (
-        <p key={menu.menuNo} onClick={() => handleClick(menu.menuRoute, menu.menuName)} className={currentPath === menu.menuRoute ? 'active' : ''}>
+        <p key={menu.menuNo} onClick={() => handleClick(menu.menuRoute, menu.menuName)} className={currentPath === menu.menuRoute.replace(/^\/#/, '') ? 'active' : ''}>
           {menu.menuName}
           {/* {menu.menuRoute === '/profile' && ` ${userInfo.userName} 님`} */}
         </p>

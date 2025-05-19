@@ -45,6 +45,13 @@ const Header = ({ setMenuTitle }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
+
+  const handleClick = (menuRoute, menuName) => {
+    //alert(menuRoute);
+    setMenuTitle(menuName);
+    //navigate(menuRoute);
+    window.location.href = menuRoute;
+  };
   
   return (
     <header className="common-header">
@@ -58,7 +65,7 @@ const Header = ({ setMenuTitle }) => {
         {menuOpen && (
           <div className="dropdown-menu" 
             style={{ display: menuOpen ? "block" : "none" }}
-          ><Menu setMenuTitle={setMenuTitle}/>
+          ><Menu setMenuTitle={setMenuTitle} closeMenu={() => setMenuOpen(false)}/>
             {/* <p onClick={() => handleMenuClick("/")}>전체</p>
             <p onClick={() => handleMenuClick("/upload")}>등록</p>
             <p onClick={() => handleMenuClick("/my")}>내 코디</p> */}
@@ -69,7 +76,7 @@ const Header = ({ setMenuTitle }) => {
       <div className="left-placeholder" /> {/* 좌측 비우기 (중앙정렬을 위한) */}
       
       <div className="header-title">
-        <a href="/" className="title-link">Ool-Rrim.</a>
+        <a href="javascript:void(0);" className="title-link" onClick={() => handleClick("/", "Home")}>Ool-Rrim.</a>
       </div>
       
       <div className="header-action">
