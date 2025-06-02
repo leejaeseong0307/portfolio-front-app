@@ -14,7 +14,7 @@ const Menu = ({ setMenuTitle, closeMenu  }) => {
   const currentPath = location.pathname;
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/menu`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/menu?isLogin=${isLoggedIn}`)
       .then((res) => res.json())
       .then((data) => {
         setMenus(data);

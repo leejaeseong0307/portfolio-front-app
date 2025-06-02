@@ -55,7 +55,7 @@ const Header = ({ setMenuTitle }) => {
   
   return (
     <header className="common-header">
-      {isLoggedIn &&
+      {/* {isLoggedIn && */}
       <div className="menu-wrapper" ref={menuRef}>
         <button className="menu-button" 
           onClick={() => setMenuOpen(!menuOpen)}>
@@ -71,7 +71,8 @@ const Header = ({ setMenuTitle }) => {
             <p onClick={() => handleMenuClick("/my")}>내 코디</p> */}
           </div>
         )}
-      </div>}
+      </div>
+       {/* } */}
 
       <div className="left-placeholder" /> {/* 좌측 비우기 (중앙정렬을 위한) */}
       
@@ -83,6 +84,9 @@ const Header = ({ setMenuTitle }) => {
       {!isLoggedIn && 
           <Link to="/login" className="login-link">Login</Link>
         }
+      {isLoggedIn && window.innerWidth > 768 && ( 
+          <span className="user-info">{userInfo.userId || userInfo.userName}님</span>
+        )}  
       </div>
 
       {/* <div className="header-action">
