@@ -13,6 +13,9 @@ import FindId from "./pages/FindId";
 import FindPw from "./pages/FindPw";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import CookieConsent from "./CookieConsent";
+
+
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [userInfo, setUserInfo] = useState(null);
@@ -155,6 +158,7 @@ function App() {
         />
 
       </Routes>
+      <CookieConsent />
       </>
   );
 }
