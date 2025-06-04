@@ -70,13 +70,13 @@ const Long = ({ user, menuTitle }) => {
         )}
       </div>
 
-      <div className="long-card-grid">
+      <div className="long-card-grid" onContextMenu={(e) => e.preventDefault()}>
         {items.map(item => (
           <Link to={`/longView/${item.longNo}`} key={item.longNo} className="long-card">
             <img src={item.contImg} alt={item.contTitle} className="long-thumbnail" />
             <div className="long-card-content">
               <h2 className="long-card-title">{item.contTitle}</h2>
-              <p className="long-card-description">{item.contDetail}</p>
+              <p className="long-card-description">{item.contDetail}...</p>
               <button className="long-view-button">자세히 보기</button>
             </div>
           </Link>

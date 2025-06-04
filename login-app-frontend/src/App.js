@@ -15,6 +15,8 @@ import FindPw from "./pages/FindPw";
 import Home from "./pages/Home";
 import LongForm from "./pages/LongForm";
 import LongView from "./pages/LongView";
+import Footer from './components/Footer';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CookieConsent from "./CookieConsent";
@@ -190,6 +192,7 @@ function App() {
         />
 
       </Routes>
+      <Footer />
       <CookieConsent />
       </>
   );

@@ -8,3 +8,16 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.hover-area:hover .hover-text,
+.hover-area:hover .hover-arrow {
+  color: #333;
+  stroke: #333;
+}
+
+.hover-text {
+  transition: color 0.3s ease-in-out;
+}
+
+.hover-arrow {
+  transition: stroke 0.3s ease-in-out;
+}

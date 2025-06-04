@@ -55,7 +55,7 @@ const LongView = ({ user, menuTitle }) => {
             <div>글쓴이: {data.userId}</div>
             <div>등록일: {data.createdDt}</div>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center' }} onContextMenu={(e) => e.preventDefault()}>
             <img 
               src={data.contImg} 
               alt="썸네일" 
