@@ -223,7 +223,7 @@ const isFormValid =
       if (res.ok) {
         dispatch(setUser(result));
         alert(result.message); // "회원가입 성공"
-        navigate('/dashboard'); //
+        navigate('/home'); //
         //window.location.href = "/";
       } else {
         alert(result.message); // 에러 메시지

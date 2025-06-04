@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../features/auth/authSlice'; // ✅ 리덕스 로그아웃
 import axios from 'axios';
-import '../css/Dashboard.css';
+import '../css/Short.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Profile = ({ user, menuTitle }) => {

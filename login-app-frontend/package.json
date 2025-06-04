@@ -9,8 +9,11 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "@toast-ui/editor": "^3.2.2",
+    "@toast-ui/react-editor": "^3.2.3",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
+    "codemirror": "^6.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^18.2.0",
@@ -23,8 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "postbuild": "xcopy /E /I /Y build\\* \"D:\\01_business\\workspace\\Recommend\\src\\main\\resources\\static\\\""
   },
   "eslintConfig": {
     "extends": [
@@ -46,10 +48,5 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
-  },
-  "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "postbuild": "xcopy /E /I /Y build\\* \"D:\\01_business\\workspace\\Recommend\\src\\main\\resources\\static\\\""
-}
+  }
 }

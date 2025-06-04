@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef  } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../features/auth/authSlice"; // 🔥 리덕스 logout 액션
+import { logout } from "../features/auth/authSlice"; 
 import "../css/Header.css";
 
 import { FaBars } from "react-icons/fa";
@@ -77,7 +77,7 @@ const Header = ({ setMenuTitle }) => {
       <div className="left-placeholder" /> {/* 좌측 비우기 (중앙정렬을 위한) */}
       
       <div className="header-title">
-        <a href="javascript:void(0);" className="title-link" onClick={() => handleClick("/", "Home")}>Ool-Rrim.</a>
+        <a href="#"  className="title-link" onClick={(e) => {e.preventDefault(); handleClick("/", "Home")}}>Ool-Rrim.</a>
       </div>
       
       <div className="header-action">

@@ -1,0 +1,4 @@
+/* Toast UI placeholder 블록 배경 제거 */
+.placeholder {
+  background-color: transparent !important;
+}

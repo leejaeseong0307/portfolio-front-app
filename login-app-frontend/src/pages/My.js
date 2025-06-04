@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FaHeart, FaThumbsUp, FaEye } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/Dashboard.css';
+import '../css/Short.css';
 
 const PAGE_SIZE = 6;
 

@@ -1,0 +1,123 @@
+.long-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.long-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.long-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.long-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+
+  max-width: 550px;  
+  width: 100%;       
+  margin: 0 auto;    
+}
+
+
+.long-card:hover {
+  transform: translateY(-4px);
+}
+
+.long-thumbnail {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.long-card-content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.long-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.long-card-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.long-view-button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.long-view-button:hover {
+  background-color: #333;
+}
+
+.dashboard-title-wrapper {
+  position: sticky;
+  top: 60px;
+  background-color: white;
+  z-index: 10;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* 제목 왼쪽 정렬 유지 */
+.dashboard-title {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* 버튼은 오른쪽 정렬 */
+.register-button-wrapper {
+  float: right;
+}
+
+/* 버튼 스타일은 필요에 따라 조정 */
+.register-button {
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+}
+
+.long-card-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .long-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

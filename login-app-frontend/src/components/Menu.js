@@ -11,7 +11,8 @@ const Menu = ({ setMenuTitle, closeMenu  }) => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userInfo = useSelector((state) => state.auth.userInfo);
   const location = useLocation();
-  const currentPath = location.pathname;
+  const currentPath = location.pathname == '/' ? '/#/home' : location.pathname;
+  //currentPath = currentPath == '/' ? '/#/home' : currentPath;
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/api/menu?isLogin=${isLoggedIn}`)

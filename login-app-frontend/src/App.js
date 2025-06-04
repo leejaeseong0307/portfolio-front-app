@@ -6,11 +6,15 @@ import { setUser, logout } from "./features/auth/authSlice";
 import Header from "./components/Header";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
+import Short from "./pages/Short";
+import Long from "./pages/Long";
 import Profile from "./pages/Profile";
 import My from "./pages/My";
 import FindId from "./pages/FindId";
 import FindPw from "./pages/FindPw";
+import Home from "./pages/Home";
+import LongForm from "./pages/LongForm";
+import LongView from "./pages/LongView";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CookieConsent from "./CookieConsent";
@@ -73,7 +77,7 @@ function App() {
   const location = useLocation();
   const path = location.pathname;
 
-  const showHeader = isLoggedIn || path === '/dashboard' || path === '/';
+  const showHeader = isLoggedIn || path === '/home' || path === '/';
 
   if (loading) return <p>로딩 중...</p>; // 세션 확인 중
 
@@ -95,21 +99,21 @@ function App() {
          <Route
           path="/"
           element={
-            isLoggedIn ? <Dashboard user={userInfo} menuTitle={menuTitle} /> : <Dashboard menuTitle={menuTitle}/>
+            isLoggedIn ? <Home user={userInfo} menuTitle={menuTitle} /> : <Home menuTitle={menuTitle}/>
           }
         />
         <Route
           path="/login"
           element={
-            isLoggedIn ? <Dashboard user={userInfo} menuTitle={menuTitle} /> : <Login />
+            isLoggedIn ? <Home user={userInfo} menuTitle={menuTitle} /> : <Login />
             // isLoggedIn ? <Navigate to="/dashboard" /> : <Login />
           }
         />
 
         <Route
-          path="/dashboard"
+          path="/home"
           element={
-            isLoggedIn ? <Dashboard user={userInfo} menuTitle={menuTitle} /> : <Dashboard menuTitle={menuTitle}/>
+            isLoggedIn ? <Home user={userInfo} menuTitle={menuTitle} /> : <Home menuTitle={menuTitle}/>
             // isLoggedIn ? <Dashboard user={userInfo} menuTitle={menuTitle} /> : <Navigate to="/login" />
           }
         />
@@ -118,35 +122,63 @@ function App() {
         <Route
           path="/register"
           element={
-            isLoggedIn ? <Dashboard user={userInfo}  menuTitle={menuTitle} /> : <Register />
+            isLoggedIn ? <Home user={userInfo}  menuTitle={menuTitle} /> : <Register />
           }
         />
 
         <Route
           path="/profile"
           element={
-            isLoggedIn ? <Profile user={userInfo}  menuTitle={menuTitle} /> : <Navigate to="/dashboard" menuTitle={menuTitle}/>
+            isLoggedIn ? <Profile user={userInfo}  menuTitle={menuTitle} /> : <Navigate to="/home" menuTitle={menuTitle}/>
           }
         />
 
         <Route
           path="/my"
           element={
-            isLoggedIn ? <My user={userInfo}  menuTitle={menuTitle} /> : <Navigate to="/dashboard" menuTitle={menuTitle}/>
+            isLoggedIn ? <My user={userInfo}  menuTitle={menuTitle} /> : <Navigate to="/home" menuTitle={menuTitle}/>
           }
         />
 
         <Route
           path="/findId"
           element={
-            isLoggedIn ? <Dashboard user={userInfo}  menuTitle={menuTitle} /> : <FindId />
+            isLoggedIn ? <Home user={userInfo}  menuTitle={menuTitle} /> : <FindId />
           }
         />
 
         <Route
           path="/findPw"
           element={
-            isLoggedIn ? <Dashboard user={userInfo}  menuTitle={menuTitle} /> : <FindPw />
+            isLoggedIn ? <Home user={userInfo}  menuTitle={menuTitle} /> : <FindPw />
+          }
+        />
+
+        <Route
+          path="/short"
+          element={
+            isLoggedIn ? <Short user={userInfo}  menuTitle={menuTitle} /> :  <Short menuTitle={menuTitle}/>
+          }
+        />
+
+        <Route
+          path="/long"
+          element={
+            isLoggedIn ? <Long user={userInfo}  menuTitle={menuTitle} /> :  <Long menuTitle={menuTitle}/>
+          }
+        />
+
+        <Route
+          path="/longForm"
+          element={
+            isLoggedIn ? <LongForm user={userInfo}  menuTitle={menuTitle} /> :  <Home menuTitle={menuTitle}/>
+          }
+        />
+
+        <Route
+          path="/longView/:id"
+          element={
+            isLoggedIn ? <LongView user={userInfo}  menuTitle={menuTitle} /> :  <LongView menuTitle={menuTitle}/>
           }
         />
 
@@ -154,7 +186,7 @@ function App() {
         <Route
           path="*"
           // element={<Dashboard />}
-          element={<Navigate to={isLoggedIn ? "/dashboard" : "/login"} />}
+          element={<Navigate to={isLoggedIn ? "/home" : "/login"} />}
         />
 
       </Routes>

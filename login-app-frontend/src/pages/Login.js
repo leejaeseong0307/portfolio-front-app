@@ -44,7 +44,7 @@ function Login() {
         // console.log(data.id);          // user id
         // console.log(data.username);    // user name
         dispatch(setUser(data)); // Redux에 사용자 정보 저장
-        navigate('/dashboard');
+        navigate('/home');
         //window.location.href = "/dashboard";
       }else{
         alert(data.message);
