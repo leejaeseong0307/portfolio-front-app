@@ -7,7 +7,32 @@
   background-color: #fff;
   color: #888;
   font-size: 0.9rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 8px 0; /* 위아래 여백 줄이기 */
   z-index: 1000;
+  text-align: center;
+}
+
+/* 푸터 내 링크 스타일 */
+.footer-link {
+  margin: 0 6px;
+  text-decoration: underline;
+  color: inherit;
+}
+
+/* p 태그 간 간격 줄이기 */
+.footer-fixed p {
+  margin: 2px 0;
+}
+
+/* 푸터를 작은 화면에서도 잘 보이게 */
+@media (max-width: 600px) {
+  .footer-fixed {
+    font-size: 0.8rem;
+    padding: 6px 0;
+  }
+
+  .footer-link {
+    display: inline-block;
+    margin: 2px 4px;
+  }
 }

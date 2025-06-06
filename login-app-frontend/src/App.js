@@ -17,6 +17,11 @@ import LongForm from "./pages/LongForm";
 import LongView from "./pages/LongView";
 import Footer from './components/Footer';
 
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+
+import ImageCredit from './components/ImageCredit';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CookieConsent from "./CookieConsent";
@@ -87,7 +92,8 @@ function App() {
     <>
       {/* {showHeader && <Header setMenuTitle={setMenuTitle}/>} */}
       <Header setMenuTitle={setMenuTitle}/>
-      
+      <ImageCredit />
+      <div style={{ paddingBottom: '120px' }}>
       {/* <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} userInfo={userInfo} /> */}
       <Routes>
         {/* <Route path="/" element={<index />} /> */}
@@ -173,7 +179,7 @@ function App() {
         <Route
           path="/longForm"
           element={
-            isLoggedIn ? <LongForm user={userInfo}  menuTitle={menuTitle} /> :  <Home menuTitle={menuTitle}/>
+            isLoggedIn ? <LongForm user={userInfo}  menuTitle={menuTitle} /> :  <Navigate to="/" />
           }
         />
 
@@ -181,6 +187,20 @@ function App() {
           path="/longView/:id"
           element={
             isLoggedIn ? <LongView user={userInfo}  menuTitle={menuTitle} /> :  <LongView menuTitle={menuTitle}/>
+          }
+        />
+        
+        <Route
+          path="/Terms"
+          element={
+            isLoggedIn ? <Terms user={userInfo} menuTitle={menuTitle} /> : <Terms menuTitle={menuTitle}/>
+          }
+        />
+
+        <Route
+          path="/Privacy"
+          element={
+            isLoggedIn ? <Privacy user={userInfo} menuTitle={menuTitle} /> : <Privacy menuTitle={menuTitle}/>
           }
         />
 
@@ -192,6 +212,7 @@ function App() {
         />
 
       </Routes>
+      </div>
       <Footer />
       <CookieConsent />
       </>

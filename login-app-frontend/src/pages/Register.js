@@ -258,6 +258,7 @@ const isFormValid =
             value={formData.id}
             onChange={handleChange}
             //required
+            placeholder="Enter Your Identifier"
           />
         </div>
 
@@ -270,6 +271,7 @@ const isFormValid =
             value={formData.name}
             onChange={handleChange}
             //required
+            placeholder="Enter Your Name"
           />
         </div>
 
@@ -283,6 +285,7 @@ const isFormValid =
             value={formData.email}
             onChange={handleChange}
             //required
+            placeholder="Enter Your Email"
           />
           <button onClick={handleSendCode} //disabled={isVerified}
           className="toggle-password">
@@ -298,6 +301,7 @@ const isFormValid =
           name="verifyCode"
           value={formData.verifyCode}
           onChange={handleChange}
+          placeholder="Enter Your Verify Code"
           //required
         />
         {!isVerified && (
@@ -330,6 +334,7 @@ const isFormValid =
             className="form-control"
             value={formData.password}
             onChange={handleChange}
+            placeholder="Enter Your Password"
            // required
           />
           <button
@@ -343,26 +348,28 @@ const isFormValid =
         {passwordError && <p className="error-msg">{passwordError}</p>}
 
         <div className="mb-4">
-          <label className="form-label">PasswordChek</label>
+          <label className="form-label">PasswordCheck</label>
           <input
             type={showPassword ? 'text' : 'password'}
             name="passwordChk"
             className="form-control"
             value={formData.passwordChk}
             onChange={handleChange}
+            placeholder="Enter Your PasswordCheck"
            // required
           />
         </div>
         {passwordConfirmError && <p className="error-msg">{passwordConfirmError}</p>}
 
         <div className="mb-4">
-          <label><span className="form-label">개인정보 수집 및 활용에 동의합니다. </span>
+          <label><span className="form-label">[필수] 개인정보 수집 및 이용에 동의합니다. </span>
             <input
               type="checkbox"
               name="agreeYn"
               value={formData.agreeYn}
               onChange={handleChange}
-            />
+            /><br />
+            <span className="form-label"><a href="/terms" target="_blank" rel="noopener noreferrer">이용약관</a> | <a href="/privacy" target="_blank" rel="noopener noreferrer">개인정보처리방침침</a></span>
           </label>
         </div>
 
