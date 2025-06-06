@@ -23,7 +23,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('로그인 정보:', formData);
+    //console.log('로그인 정보:', formData);
     // TODO: 백엔드에 로그인 요청
 
     try {
