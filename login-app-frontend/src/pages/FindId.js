@@ -206,6 +206,7 @@ const isFormValid =
             value={formData.name}
             onChange={handleChange}
             //required
+            placeholder="Enter Your Name"
           />
         </div>
         {nameError && <p className="error-msg">{nameError}</p>}
@@ -219,6 +220,7 @@ const isFormValid =
             className="form-control"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Enter Your Email"
             //required
           />
           <button onClick={handleSendCode} //disabled={isVerified}
@@ -235,6 +237,7 @@ const isFormValid =
           name="verifyCode"
           value={formData.verifyCode}
           onChange={handleChange}
+          placeholder="Enter Your Verify Code"
           //required
         />
         {!isVerified && (

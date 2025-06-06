@@ -249,6 +249,7 @@ const isFormValid =
             ref={idInputRef}
             value={formData.id}
             onChange={handleChange}
+            placeholder="Enter Your Identifier"
             //required
           />
         </div>
@@ -274,6 +275,7 @@ const isFormValid =
             className="form-control"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Enter Your Email"
             //required
           />
           <button onClick={handleSendCode} //disabled={isVerified}
@@ -290,6 +292,7 @@ const isFormValid =
           name="verifyCode"
           value={formData.verifyCode}
           onChange={handleChange}
+          placeholder="Enter Your Verify Code"
           //required
         />
         {!isVerified && (
@@ -322,6 +325,7 @@ const isFormValid =
             className="form-control"
             value={formData.password}
             onChange={handleChange}
+            placeholder="Enter Your Password"
            // required
           />
           <button
@@ -335,13 +339,14 @@ const isFormValid =
         {passwordError && <p className="error-msg">{passwordError}</p>}
 
         <div className="mb-4">
-          <label className="form-label">PasswordChek</label>
+          <label className="form-label">PasswordCheck</label>
           <input
             type={showPassword ? 'text' : 'password'}
             name="passwordChk"
             className="form-control"
             value={formData.passwordChk}
             onChange={handleChange}
+            placeholder="Enter Your PasswordCheck"
            // required
           />
         </div>
