@@ -27,14 +27,14 @@ const CookieConsent = () => {
 
      const script1 = document.createElement("script");
       script1.async = true;
-      script1.src = "https://www.googletagmanager.com/gtag/js?id=G-xxxxxx";
+      script1.src = "https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxx";
 
       const script2 = document.createElement("script");
       script2.innerHTML = `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-xxxxxx');
+      gtag('config', 'G-xxxxxxxx');
     `;
 
   document.head.appendChild(script1);
@@ -92,20 +92,22 @@ const CookieConsent = () => {
 
 const styles = {
   banner: {
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: "#222",
-    color: "#fff",
-    padding: "16px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    zIndex: 9999,
-    fontSize: "14px",
-    flexWrap: "wrap",
-  },
+  position: "fixed",
+  left: "20px",
+  right: "20px",
+  bottom: "80px", // ✅ 푸터 위로 띄움
+  backgroundColor: "#222",
+  color: "#fff",
+  padding: "16px",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  zIndex: 9999,
+  fontSize: "14px",
+  flexWrap: "wrap",
+  borderRadius: "8px", // 선택: 떠 있는 느낌 줄 수 있음
+  boxShadow: "0 2px 8px rgba(0,0,0,0.3)" // 선택: 그림자
+},
   text: {
     margin: 0,
     flex: 1,
@@ -121,7 +123,7 @@ const styles = {
   },
   revokeContainer: {
     position: "fixed",
-    bottom: "10px",
+    bottom: "100px",
     right: "10px",
     zIndex: 9999,
   },
