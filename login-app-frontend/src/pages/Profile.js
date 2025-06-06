@@ -63,7 +63,7 @@ const Profile = ({ user, menuTitle }) => {
         dispatch(logout());
     
         //navigate("/login");
-        window.location.href = "/#/login";
+        window.location.href = "/login";
       } else {
         alert("예상치 못한 응답입니다: " + response.data);
       }
@@ -106,7 +106,10 @@ const Profile = ({ user, menuTitle }) => {
   return (
     <div className="container py-5">
       <div className="dashboard-title-wrapper mb-4">
-        <div className="dashboard-title">{menuTitle}</div>
+        <div className="dashboard-title"
+        style={{ cursor: 'pointer' }}
+        onClick={() => window.location.reload()}
+        >{menuTitle}</div>
       </div>
 
       <div className="card p-4">

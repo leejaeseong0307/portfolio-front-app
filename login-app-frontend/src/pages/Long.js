@@ -52,12 +52,14 @@ const Long = ({ user, menuTitle }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  menuTitle = location.state?.menuName || "Long Story";
+ // menuTitle = location.state?.menuName || "Long Story";
 
   return (
     <div className="container py-5 long-container">
       <div className="dashboard-title-wrapper mb-5 clearfix">
-        <div className="dashboard-title" style={{ float: 'left' }}>{menuTitle}</div>
+        <div className="dashboard-title" style={{ float: 'left', cursor: 'pointer' }}
+        onClick={() => window.location.reload()}
+        >Long Story</div>
         {user && (
           <div className="register-button-wrapper" style={{ float: 'right' }}>
             <button

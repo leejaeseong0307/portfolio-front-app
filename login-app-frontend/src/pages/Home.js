@@ -22,7 +22,10 @@ const Home = ({ menuTitle }) => {
     <div className="container py-5" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
       {/* 타이틀 */}
       <div className="dashboard-title-wrapper mb-5">
-        <h2 className="dashboard-title fw-bold">{menuTitle}</h2>
+        <h2 className="dashboard-title fw-bold"
+        style={{ cursor: 'pointer' }}
+        onClick={() => window.location.reload()}
+        >{menuTitle}</h2>
       </div>
 
       {/* 소개 문구 */}

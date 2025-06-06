@@ -11,8 +11,14 @@ const Menu = ({ setMenuTitle, closeMenu  }) => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userInfo = useSelector((state) => state.auth.userInfo);
   const location = useLocation();
-  const currentPath = location.pathname == '/' ? '/#/home' : location.pathname;
+  //const currentPath = location.pathname == '/' ? '/home' : location.pathname;
   //currentPath = currentPath == '/' ? '/#/home' : currentPath;
+  const currentPath =
+  location.pathname === '/'
+    ? '/home'
+    : location.pathname.startsWith('/longView') || location.pathname.startsWith('/longForm')
+    ? '/long'
+    : location.pathname;
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/api/menu?isLogin=${isLoggedIn}`)
@@ -57,7 +63,7 @@ const Menu = ({ setMenuTitle, closeMenu  }) => {
         return true;
       }) */}
       {menus.map((menu) => (
-        <p key={menu.menuNo} onClick={() => handleClick(menu.menuRoute, menu.menuName)} className={currentPath === menu.menuRoute.replace(/^\/#/, '') ? 'active' : ''}>
+        <p key={menu.menuNo} onClick={() => handleClick(menu.menuRoute, menu.menuName)} className={currentPath === menu.menuRoute ? 'active' : ''}>
           {menu.menuName}
           {/* {menu.menuRoute === '/profile' && ` ${userInfo.userName} 님`} */}
         </p>

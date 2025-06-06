@@ -147,13 +147,16 @@ const Short = ({ user, menuTitle }) => {
   };
 
 const location = useLocation();
-menuTitle = location.state?.menuName || "Short Story";
+//menuTitle = location.state?.menuName || "Short Story";
 console.log(menuTitle);
 
   return (
     <div className="container py-5" style={{ paddingBottom: '300px' }}>
       <div className="dashboard-title-wrapper mb-5">
-        <div className="dashboard-title">{menuTitle}</div>
+        <div className="dashboard-title"
+        style={{ cursor: 'pointer' }}
+        onClick={() => window.location.reload()}
+        >Short Story</div>
       </div>
 
       <div className="dashboard-content-area" style={{ minHeight: '200vh' }}>
