@@ -53,6 +53,7 @@ const LongForm = ({ user, menuTitle }) => {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/upload-image`, {
         method: 'POST',
         body: formData,
+        credentials: 'include'
       });
       const result = await response.json();
       setThumbnail(result.url);
@@ -89,6 +90,7 @@ const LongForm = ({ user, menuTitle }) => {
         method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
+        credentials: 'include'
       });
 
       if (response.ok) {
@@ -106,12 +108,69 @@ const LongForm = ({ user, menuTitle }) => {
     }
   };
 
+  const handleCancel = () => {
+    if(mode === 'edit'){
+      navigate(`/longview/${initialData.longNo}`);
+    }else{
+      navigate('/long');
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!window.confirm("정말 삭제하시겠습니까?")) {
+        return;
+    }
+    
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/longdel/${initialData.longNo}`, {
+        method:'DELETE',
+        //headers: { 'Content-Type': 'application/json' },
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        const result = await response.text();
+        navigate('/long');
+      } else {
+        const errorText = await response.text();
+        console.error('삭제 실패:', errorText);
+        alert('삭제 실패');
+      }
+    } catch (error) {
+      console.error('에러 발생:', error);
+      alert('에러가 발생했습니다.');
+    }
+  };
+
+  const isOwner = mode === 'edit'
+  ? user && initialData && user.userId === initialData.userId
+  : !!user;
+
+  if(mode === 'edit' && !isOwner ){
+    navigate('/');
+  }
+
   return (
     <div className="container py-5" style={{ paddingBottom: '300px' }}>
       <div className="dashboard-title-wrapper mb-5 clearfix">
-        <div className="dashboard-title" style={{ float: 'left' }}>{menuTitle || 'Long Story'}</div>
-        {user && (
-          <div className="register-button-wrapper" style={{ float: 'right' }}>
+        <div className="dashboard-title" style={{ float: 'left' }}>Long Story</div>
+        {isOwner && (
+          <div className="register-button-wrapper" style={{ float: 'right', marginTop: '70px' }}>
+            {mode === 'edit' ? (
+              <>
+                <button className="btn btn-secondary me-2" onClick={handleCancel}>
+                  취소
+                </button>
+                <button className="btn btn-danger me-2" onClick={handleDelete}>
+                  삭제
+                </button>
+                </>
+              ) : (
+                <button className="btn btn-secondary me-2" onClick={handleCancel}>
+                  취소
+                </button>
+              )}
+
             <button className="btn btn-dark register-button" onClick={handleSave}>
               저장
             </button>
@@ -135,6 +194,7 @@ const LongForm = ({ user, menuTitle }) => {
         onChange={(e) => setGenre(e.target.value)}
       >
         <option value="">장르 선택</option>
+        <option value="drama">드라마</option>
         <option value="romance">로맨스</option>
         <option value="fantasy">판타지</option>
         <option value="thriller">스릴러</option>

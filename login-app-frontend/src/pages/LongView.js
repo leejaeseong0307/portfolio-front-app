@@ -27,21 +27,65 @@ const LongView = ({ user, menuTitle }) => {
     fetchData();
   }, [id]);
 
-  menuTitle = location.state?.menuName || "Long Story";
+  //menuTitle = location.state?.menuName || "Long Story";
+
+  const handleCancel = () => {
+    navigate('/long');
+  };
+
+  const handleDelete = async () => {
+    if (!window.confirm("정말 삭제하시겠습니까?")) {
+        return;
+    }
+    
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/longdel/${data.longNo}`, {
+        method:'DELETE',
+        //headers: { 'Content-Type': 'application/json' },
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        const result = await response.text();
+        navigate('/long');
+      } else {
+        const errorText = await response.text();
+        console.error('삭제 실패:', errorText);
+        alert('삭제 실패');
+      }
+    } catch (error) {
+      console.error('에러 발생:', error);
+      alert('에러가 발생했습니다.');
+    }
+  };
 
   const isOwner = user && data && user.userId === data.userId;
 
   return (
     <div className="container py-5" style={{ paddingBottom: '300px' }}>
       <div className="dashboard-title-wrapper mb-5 clearfix">
-        <div className="dashboard-title" style={{ float: 'left' }}>{menuTitle}</div>
+        <div className="dashboard-title" style={{ float: 'left' }}>Long Story</div>
         {isOwner && (
-          <div className="register-button-wrapper" style={{ float: 'right' }}>
+          <div className="register-button-wrapper" style={{ float: 'right', marginTop: '70px' }}>
+            <button className="btn btn-secondary me-2" onClick={handleCancel}>
+                  이전
+            </button>
+            <button className="btn btn-danger me-2" onClick={handleDelete}>
+                  삭제
+            </button>
+            
             <button
-              className="btn btn-dark register-button"
+              className="btn btn-dark register-button me-2"
               onClick={() => navigate(`/longForm`, { state: { mode: 'edit', data } })}
             >
               수정
+            </button>
+
+            <button
+              className="btn btn-secondary register-button"
+              onClick={() => navigate('/longForm')}
+            >
+              등록
             </button>
           </div>
         )}
@@ -58,9 +102,9 @@ const LongView = ({ user, menuTitle }) => {
           <div style={{ display: 'flex', justifyContent: 'center' }} onContextMenu={(e) => e.preventDefault()}>
             <img 
               src={data.contImg} 
-              alt="썸네일" 
+              alt={data.contTitle} 
               style={{ 
-                maxWidth: '30%', 
+                maxWidth: '65%', 
                 height: 'auto', 
                 marginBottom: '20px', 
                 borderRadius: '12px', 
@@ -79,7 +123,6 @@ const LongView = ({ user, menuTitle }) => {
       ) : (
         <p>로딩 중...</p>
       )}
-      <br /><br />
     </div>
   );
 };
