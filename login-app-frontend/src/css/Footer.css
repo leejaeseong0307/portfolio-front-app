@@ -24,6 +24,13 @@
   margin: 2px 0;
 }
 
+.footer-fixed {
+  transition: transform 0.3s ease-in-out;
+}
+.footer-fixed.hidden {
+  transform: translateY(100%);
+}
+
 /* 푸터를 작은 화면에서도 잘 보이게 */
 @media (max-width: 600px) {
   .footer-fixed {
