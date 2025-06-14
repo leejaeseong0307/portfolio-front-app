@@ -36,7 +36,8 @@ const Menu = ({ setMenuTitle, closeMenu  }) => {
     setMenuTitle(menuName);
     //navigate(menuRoute);
     closeMenu();
-    window.location.href = menuRoute;
+    //window.location.href = menuRoute;
+    navigate(menuRoute, { state: { menuName } });
   };
 
   const handleLogout = (menuName) => {
