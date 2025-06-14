@@ -81,7 +81,7 @@ const CookieConsent = () => {
     return (
       <div style={styles.revokeContainer}>
         <button onClick={handleRevoke} style={styles.revokeButton}>
-          쿠키 동의 철회하기
+          X 쿠키 동의 철회
         </button>
       </div>
     );
@@ -95,7 +95,7 @@ const styles = {
   position: "fixed",
   left: "20px",
   right: "20px",
-  bottom: "80px", // ✅ 푸터 위로 띄움
+  bottom: "80px", // 푸터 위로 띄움
   backgroundColor: "#222",
   color: "#fff",
   padding: "16px",
@@ -123,18 +123,19 @@ const styles = {
   },
   revokeContainer: {
     position: "fixed",
-    bottom: "100px",
-    right: "10px",
-    zIndex: 9999,
+    top: "75px",
+    left: "10px",
+    zIndex: 2999,
   },
   revokeButton: {
-    backgroundColor: "#f44336",
-    color: "#fff",
-    border: "none",
-    padding: "8px 12px",
-    cursor: "pointer",
-    borderRadius: "4px",
-    fontSize: "12px",
+    backgroundColor: "transparent",  // 배경 없음
+  color: "rgba(128, 128, 128, 0.7)", // 흐린 회색
+  border: "none",
+  padding: "4px 8px",
+  cursor: "pointer",
+  borderRadius: "4px",
+  fontSize: "12px",
+  fontWeight: "normal",
   },
 };
 
