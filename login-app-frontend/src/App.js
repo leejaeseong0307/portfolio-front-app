@@ -52,18 +52,23 @@ function App() {
       .then((res) => {
         if (res.ok) return res.json();
         if (res.status === 401) {
-          throw new Error("알 수 없는 에러");
+          return null;
         }
-        
+        //throw new Error("알 수 없는 에러");
+        return res.text().then((text) => {
+          throw new Error(`에러: ${res.status} - ${text}`);
+        });
       })
       .then((data) => {
         if (data) {
           dispatch(setUser(data)); // 데이터가 있을 때만 로그인 처리
+        }else{
+          dispatch(logout());
         }
       })
       .catch((err) => {
         console.error("로그인 실패:", err);
-        dispatch(logout()); // 리덕스에서 로그인 상태 제거
+        //dispatch(logout()); // 리덕스에서 로그인 상태 제거
         //window.location.href = "/login";
       })
       .finally(() => setLoading(false)); // 완료되면 로딩 false
@@ -171,6 +176,13 @@ function App() {
 
         <Route
           path="/long"
+          element={
+            isLoggedIn ? <Long user={userInfo}  menuTitle={menuTitle} /> :  <Long menuTitle={menuTitle}/>
+          }
+        />
+
+        <Route
+          path="/longView"
           element={
             isLoggedIn ? <Long user={userInfo}  menuTitle={menuTitle} /> :  <Long menuTitle={menuTitle}/>
           }
